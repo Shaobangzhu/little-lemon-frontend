@@ -22,12 +22,12 @@ const tax = 1.20;
 function getPrices(taxBoolean) {
     for (let obj of dishData) {
         let finalPrice;
-        if (taxBoolean) {
+        if (taxBoolean == true) {
             finalPrice = obj.price * tax;
-        } else if(!taxBoolean) {
+        } else if(taxBoolean == false) {
             finalPrice = obj.price;
         } else {
-            console.log("You need to pass a boolean to the getPrice call!");
+            console.log("You need to pass a boolean to the getPrices call!");
             return;
         }
         console.log(`Dish: ${obj.name} Price: $${finalPrice}`);
@@ -51,5 +51,4 @@ function getDiscount(taxBoolean, guest) {
 }
 
 // Call getDiscount()
-getDiscount(true, 2);
-getDiscount(false, 10);
+getPrices();
